@@ -9,4 +9,8 @@ public class DirectedGraph<T> {
 		return new HashSet<>();
 	}
 
+	public Set<DirectedEdge<T>> getEdges() {
+		return new HashSet<>();
+	}
+
 }

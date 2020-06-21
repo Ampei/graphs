@@ -9,6 +9,7 @@ public class DirectedGraphTest {
 	public void constructor() {
 		DirectedGraph<String> graph = new DirectedGraph<>();
 		Assert.assertTrue(graph.getVertices().isEmpty());
+		Assert.assertTrue(graph.getEdges().isEmpty());
 	}
 
 }
