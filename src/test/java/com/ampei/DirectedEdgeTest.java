@@ -19,4 +19,9 @@ public class DirectedEdgeTest {
 		Assert.assertTrue(edge.getTarget().equals("Y"));
 	}
 	
+	@Test(expected = NullPointerException.class)
+	public void constructorFailsWithNull() {
+	  new DirectedEdge<>(null, "B");
+	}
+	
 }
