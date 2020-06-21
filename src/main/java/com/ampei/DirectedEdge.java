@@ -9,7 +9,7 @@ public class DirectedEdge<T> {
 
 	public DirectedEdge(T source, T target) {
 		this.source = Objects.requireNonNull(source, "source must not be null");
-		this.target = target;
+		this.target = Objects.requireNonNull(target, "target must not be null");
 	}
 
 	public T getSource() {
