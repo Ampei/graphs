@@ -5,6 +5,9 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
+import nl.jqno.equalsverifier.EqualsVerifier;
+import nl.jqno.equalsverifier.Warning;
+
 public class DirectedEdgeTest {
 
 	@Rule
@@ -30,12 +33,17 @@ public class DirectedEdgeTest {
 		thrown.expectMessage(("source must not be null"));
 		new DirectedEdge<>(null, "B");
 	}
-	
+
 	@Test
 	public void constructorFailsWithTargetNull() {
 		thrown.expect(NullPointerException.class);
 		thrown.expectMessage(("target must not be null"));
 		new DirectedEdge<>("A", null);
+	}
+
+	@Test
+	public void equalsContract() {
+		EqualsVerifier.forClass(DirectedEdge.class).usingGetClass().suppress(Warning.NULL_FIELDS).verify();
 	}
 
 }

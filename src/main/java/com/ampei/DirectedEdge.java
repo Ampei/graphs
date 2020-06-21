@@ -20,4 +20,19 @@ public class DirectedEdge<T> {
 		return target;
 	}
 
+	@Override
+	public boolean equals(Object o) {
+		if (this == o)
+			return true;
+		if (o == null || getClass() != o.getClass())
+			return false;
+		DirectedEdge<?> that = (DirectedEdge<?>) o;
+		return source.equals(that.source) && target.equals(that.target);
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(source, target);
+	}
+
 }
