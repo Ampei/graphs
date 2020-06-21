@@ -11,5 +11,12 @@ public class DirectedEdgeTest {
 		Assert.assertTrue(edge.getSource().equals("A"));
 		Assert.assertTrue(edge.getTarget().equals("B"));
 	}
+
+	@Test
+	public void constructor_XY() {
+		DirectedEdge<String> edge = new DirectedEdge<>("X", "Y");
+		Assert.assertTrue(edge.getSource().equals("X"));
+		Assert.assertTrue(edge.getTarget().equals("Y"));
+	}
 	
 }
