@@ -1,9 +1,14 @@
 package com.ampei;
 
 import org.junit.Assert;
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.ExpectedException;
 
 public class DirectedEdgeTest {
+
+	@Rule
+	public ExpectedException thrown = ExpectedException.none();
 
 	@Test
 	public void constructor_AB() {
@@ -18,10 +23,12 @@ public class DirectedEdgeTest {
 		Assert.assertTrue(edge.getSource().equals("X"));
 		Assert.assertTrue(edge.getTarget().equals("Y"));
 	}
-	
-	@Test(expected = NullPointerException.class)
+
+	@Test
 	public void constructorFailsWithNull() {
-	  new DirectedEdge<>(null, "B");
+		thrown.expect(NullPointerException.class);
+		thrown.expectMessage(("source must not be null"));
+		new DirectedEdge<>(null, "B");
 	}
-	
+
 }
