@@ -11,5 +11,12 @@ public class DirectedGraphTest {
 		Assert.assertTrue(graph.getVertices().isEmpty());
 		Assert.assertTrue(graph.getEdges().isEmpty());
 	}
+	
+	@Test
+	public void vertexAddsNewVertex() {
+	  DirectedGraph<String> graph = new DirectedGraph<>();
+	  graph.vertex("A");
+	  Assert.assertTrue(graph.getVertices().contains("A"));
+	}
 
 }

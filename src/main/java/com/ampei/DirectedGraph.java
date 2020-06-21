@@ -5,12 +5,22 @@ import java.util.Set;
 
 public class DirectedGraph<T> {
 
-	public Set<String> getVertices() {
-		return new HashSet<>();
+	private final Set<T> vertices;
+
+	public DirectedGraph() {
+		vertices = new HashSet<>();
+	}
+
+	public Set<T> getVertices() {
+		return vertices;
 	}
 
 	public Set<DirectedEdge<T>> getEdges() {
 		return new HashSet<>();
+	}
+
+	public void vertex(T vertex) {
+		vertices.add(vertex);
 	}
 
 }
