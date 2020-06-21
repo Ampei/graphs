@@ -6,4 +6,8 @@ public class DirectedEdge<T> {
 		return (T) "A";
 	}
 
+	public T getTarget() {
+		return (T) "B";
+	}
+
 }
