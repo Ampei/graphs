@@ -47,6 +47,7 @@ public class DirectedGraph<T> {
 	}
 
 	public void removeVertex(T vertex) {
+		Objects.requireNonNull(vertex, "vertex must not be null");
 		vertices.remove(vertex);
 	}
 

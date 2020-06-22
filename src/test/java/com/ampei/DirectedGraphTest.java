@@ -108,21 +108,29 @@ public class DirectedGraphTest {
 		thrown.expectMessage("edge with source \"A\" and target \"B\" does not exist");
 		graph.removeEdge("A", "B");
 	}
-	
+
 	@Test
 	public void removeEdgeRemovesEdge() {
-	  DirectedGraph<String> graph = new DirectedGraph<>();
-	  graph.edge("A", "B");
-	  graph.removeEdge("A", "B");
-	  Assert.assertTrue(graph.getEdges().isEmpty());
+		DirectedGraph<String> graph = new DirectedGraph<>();
+		graph.edge("A", "B");
+		graph.removeEdge("A", "B");
+		Assert.assertTrue(graph.getEdges().isEmpty());
 	}
-	
+
 	@Test
 	public void removeEdgeRemoveVertex() {
-	  DirectedGraph<String> graph = new DirectedGraph<>();
-	  graph.vertex("A");
-	  graph.removeVertex("A");
-	  Assert.assertTrue(graph.getVertices().isEmpty());
+		DirectedGraph<String> graph = new DirectedGraph<>();
+		graph.vertex("A");
+		graph.removeVertex("A");
+		Assert.assertTrue(graph.getVertices().isEmpty());
+	}
+
+	@Test
+	public void removeVertexFailsOnNullVertex() {
+		DirectedGraph<String> graph = new DirectedGraph<>();
+		thrown.expect(NullPointerException.class);
+		thrown.expectMessage("vertex must not be null");
+		graph.removeVertex(null);
 	}
 
 }
