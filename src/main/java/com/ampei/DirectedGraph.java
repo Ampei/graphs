@@ -9,8 +9,11 @@ public class DirectedGraph<T> {
 
 	private final Set<T> vertices;
 
+	private final Set<DirectedEdge<T>> edges;
+
 	public DirectedGraph() {
 		vertices = new HashSet<>();
+		edges = new HashSet<>();
 	}
 
 	public Set<T> getVertices() {
@@ -18,7 +21,7 @@ public class DirectedGraph<T> {
 	}
 
 	public Set<DirectedEdge<T>> getEdges() {
-		return Collections.unmodifiableSet(new HashSet<>());
+		return Collections.unmodifiableSet(edges);
 	}
 
 	public void vertex(T vertex) {
@@ -31,6 +34,7 @@ public class DirectedGraph<T> {
 		Objects.requireNonNull(target, "target must not be null");
 		vertex(source);
 		vertex(target);
+		edges.add(new DirectedEdge<>(source, target));
 	}
 
 }

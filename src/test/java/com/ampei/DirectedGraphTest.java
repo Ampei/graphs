@@ -77,5 +77,12 @@ public class DirectedGraphTest {
 		graph.edge("A", "B");
 		Assert.assertTrue(graph.getVertices().contains("B"));
 	}
+	
+	@Test
+	public void edgeAddsOnEdge() {
+	  DirectedGraph<String> graph = new DirectedGraph<>();
+	  graph.edge("A", "B");
+	  Assert.assertTrue(graph.getEdges().contains(new DirectedEdge<>("A", "B")));
+	}
 
 }
