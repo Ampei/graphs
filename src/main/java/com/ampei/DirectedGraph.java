@@ -40,7 +40,7 @@ public class DirectedGraph<T> {
 	public void removeEdge(T source, T target) {
 		Objects.requireNonNull(source, "source must not be null");
 		Objects.requireNonNull(target, "target must not be null");
-		if (!edges.contains(new DirectedEdge<>(source, target))) {
+		if (!edges.remove(new DirectedEdge<>(source, target))) {
 			throw new IllegalArgumentException(
 					String.format("edge with source \"%s\" and target \"%s\" does not exist", source, target));
 		}

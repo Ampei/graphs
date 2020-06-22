@@ -108,5 +108,13 @@ public class DirectedGraphTest {
 		thrown.expectMessage("edge with source \"A\" and target \"B\" does not exist");
 		graph.removeEdge("A", "B");
 	}
+	
+	@Test
+	public void removeEdgeRemovesEdge() {
+	  DirectedGraph<String> graph = new DirectedGraph<>();
+	  graph.edge("A", "B");
+	  graph.removeEdge("A", "B");
+	  Assert.assertTrue(graph.getEdges().isEmpty());
+	}
 
 }
