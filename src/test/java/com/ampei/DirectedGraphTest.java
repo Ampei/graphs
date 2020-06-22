@@ -116,5 +116,13 @@ public class DirectedGraphTest {
 	  graph.removeEdge("A", "B");
 	  Assert.assertTrue(graph.getEdges().isEmpty());
 	}
+	
+	@Test
+	public void removeEdgeRemoveVertex() {
+	  DirectedGraph<String> graph = new DirectedGraph<>();
+	  graph.vertex("A");
+	  graph.removeVertex("A");
+	  Assert.assertTrue(graph.getVertices().isEmpty());
+	}
 
 }

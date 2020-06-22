@@ -46,4 +46,8 @@ public class DirectedGraph<T> {
 		}
 	}
 
+	public void removeVertex(T vertex) {
+		vertices.remove(vertex);
+	}
+
 }
