@@ -1,5 +1,7 @@
 package com.ampei;
 
+import java.util.Set;
+
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -17,6 +19,13 @@ public class DirectedGraphTest {
 	  DirectedGraph<String> graph = new DirectedGraph<>();
 	  graph.vertex("A");
 	  Assert.assertTrue(graph.getVertices().contains("A"));
+	}
+	
+	@Test(expected = UnsupportedOperationException.class)
+	public void verticesAreUnmodifiable() {
+	  DirectedGraph<Integer> graph = new DirectedGraph<>();
+	  Set<Integer> vertices = graph.getVertices();
+	  vertices.add(10);
 	}
 
 }

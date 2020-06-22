@@ -1,5 +1,6 @@
 package com.ampei;
 
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -12,7 +13,7 @@ public class DirectedGraph<T> {
 	}
 
 	public Set<T> getVertices() {
-		return vertices;
+		return Collections.unmodifiableSet(vertices);
 	}
 
 	public Set<DirectedEdge<T>> getEdges() {
