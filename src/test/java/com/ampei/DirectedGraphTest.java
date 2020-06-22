@@ -55,13 +55,20 @@ public class DirectedGraphTest {
 		thrown.expectMessage("source must not be null");
 		graph.edge(null, "B");
 	}
-	
+
 	@Test
 	public void edgeFailsOnNullTarget() {
 		DirectedGraph<String> graph = new DirectedGraph<>();
 		thrown.expect(NullPointerException.class);
 		thrown.expectMessage("target must not be null");
 		graph.edge("A", null);
+	}
+
+	@Test
+	public void edgeAddsSourceVertex() {
+		DirectedGraph<String> graph = new DirectedGraph<>();
+		graph.edge("A", "B");
+		Assert.assertTrue(graph.getVertices().contains("A"));
 	}
 
 }
