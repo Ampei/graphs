@@ -48,4 +48,20 @@ public class DirectedGraphTest {
 		graph.vertex(null);
 	}
 
+	@Test
+	public void edgeFailsOnNullSource() {
+		DirectedGraph<String> graph = new DirectedGraph<>();
+		thrown.expect(NullPointerException.class);
+		thrown.expectMessage("source must not be null");
+		graph.edge(null, "B");
+	}
+	
+	@Test
+	public void edgeFailsOnNullTarget() {
+		DirectedGraph<String> graph = new DirectedGraph<>();
+		thrown.expect(NullPointerException.class);
+		thrown.expectMessage("target must not be null");
+		graph.edge("A", null);
+	}
+
 }

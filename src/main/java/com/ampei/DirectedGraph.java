@@ -26,4 +26,9 @@ public class DirectedGraph<T> {
 		vertices.add(vertex);
 	}
 
+	public void edge(T source, T target) {
+		Objects.requireNonNull(source, "source must not be null");
+		Objects.requireNonNull(target, "target must not be null");
+	}
+
 }
