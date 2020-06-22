@@ -70,19 +70,27 @@ public class DirectedGraphTest {
 		graph.edge("A", "B");
 		Assert.assertTrue(graph.getVertices().contains("A"));
 	}
-	
+
 	@Test
 	public void edgeAddsTargetVertex() {
 		DirectedGraph<String> graph = new DirectedGraph<>();
 		graph.edge("A", "B");
 		Assert.assertTrue(graph.getVertices().contains("B"));
 	}
-	
+
 	@Test
 	public void edgeAddsOnEdge() {
-	  DirectedGraph<String> graph = new DirectedGraph<>();
-	  graph.edge("A", "B");
-	  Assert.assertTrue(graph.getEdges().contains(new DirectedEdge<>("A", "B")));
+		DirectedGraph<String> graph = new DirectedGraph<>();
+		graph.edge("A", "B");
+		Assert.assertTrue(graph.getEdges().contains(new DirectedEdge<>("A", "B")));
+	}
+
+	@Test
+	public void removeEdgeFailsOnNullSource() {
+		DirectedGraph<String> graph = new DirectedGraph<>();
+		thrown.expect(NullPointerException.class);
+		thrown.expectMessage("source must not be null");
+		graph.removeEdge(null, "A");
 	}
 
 }

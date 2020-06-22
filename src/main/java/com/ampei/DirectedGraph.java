@@ -37,4 +37,8 @@ public class DirectedGraph<T> {
 		edges.add(new DirectedEdge<>(source, target));
 	}
 
+	public void removeEdge(T source, T target) {
+		Objects.requireNonNull(source, "source must not be null");
+	}
+
 }
