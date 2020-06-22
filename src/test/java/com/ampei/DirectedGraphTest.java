@@ -92,7 +92,7 @@ public class DirectedGraphTest {
 		thrown.expectMessage("source must not be null");
 		graph.removeEdge(null, "A");
 	}
-	
+
 	@Test
 	public void removeEdgeFailsOnNullTarget() {
 		DirectedGraph<String> graph = new DirectedGraph<>();
@@ -101,5 +101,12 @@ public class DirectedGraphTest {
 		graph.removeEdge("A", null);
 	}
 
+	@Test
+	public void removeEdgeFailsOnMissingEdge() {
+		DirectedGraph<String> graph = new DirectedGraph<>();
+		thrown.expect(IllegalArgumentException.class);
+		thrown.expectMessage("edge with source \"A\" and target \"B\" does not exist");
+		graph.removeEdge("A", "B");
+	}
 
 }
