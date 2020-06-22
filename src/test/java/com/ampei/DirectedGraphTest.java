@@ -92,5 +92,14 @@ public class DirectedGraphTest {
 		thrown.expectMessage("source must not be null");
 		graph.removeEdge(null, "A");
 	}
+	
+	@Test
+	public void removeEdgeFailsOnNullTarget() {
+		DirectedGraph<String> graph = new DirectedGraph<>();
+		thrown.expect(NullPointerException.class);
+		thrown.expectMessage("target must not be null");
+		graph.removeEdge("A", null);
+	}
+
 
 }
