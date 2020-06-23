@@ -2,6 +2,7 @@ package com.ampei;
 
 import java.util.Collections;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.Objects;
 import java.util.Set;
 
@@ -48,6 +49,13 @@ public class DirectedGraph<T> {
 
 	public void removeVertex(T vertex) {
 		Objects.requireNonNull(vertex, "vertex must not be null");
+		Iterator<DirectedEdge<T>> i = edges.iterator();
+		while (i.hasNext()) {
+			DirectedEdge<T> next = i.next();
+			if (next.getSource().equals(vertex) || next.getTarget().equals(vertex)) {
+				i.remove();
+			}
+		}
 		vertices.remove(vertex);
 	}
 

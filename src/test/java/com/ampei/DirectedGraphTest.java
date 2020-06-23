@@ -133,4 +133,12 @@ public class DirectedGraphTest {
 		graph.removeVertex(null);
 	}
 
+	@Test
+	public void removeVertexRemovesAdjacentEdges() {
+		DirectedGraph<String> graph = new DirectedGraph<>();
+		graph.edge("A", "B");
+		graph.removeVertex("A");
+		Assert.assertTrue(graph.getEdges().isEmpty());
+	}
+
 }
